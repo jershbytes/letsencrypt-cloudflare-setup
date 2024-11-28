@@ -31,6 +31,7 @@ if [ -f /etc/debian_version ]; then
     echo "Running on a Debian-based system, installing Certbot"
     install_python_debian
     certbot_installer
+    create_cloudflare_ini
 elif [ -f /etc/redhat-release ]; then
     echo "Running on a RHEL-based system, installing Certbot"
     install_python_redhat

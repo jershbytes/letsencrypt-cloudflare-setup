@@ -1,0 +1,7 @@
+[Unit]
+Description=Let's Encrypt renewal via Certbot
+Documentation=https://letsencrypt.readthedocs.io/en/latest/
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/certbot renew --quiet --agree-tos

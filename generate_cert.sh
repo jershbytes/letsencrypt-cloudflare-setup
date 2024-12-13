@@ -1,7 +1,6 @@
 #!/bin/bash
 
 read -rp "Please Enter FQDN: " FQDN
-read -rp "Please Enter Email: " EMAIL
 
 certbot certonly \
   --dns-cloudflare \

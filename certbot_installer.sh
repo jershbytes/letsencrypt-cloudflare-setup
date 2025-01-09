@@ -23,6 +23,7 @@ function certbot_installer {
 
 function create_cloudflare_ini {
     read -rp "Enter your Cloudflare token: " CLOUDFLARE_API_KEY
+    mkdir -p /root/.secrets/certbot
     echo "dns_cloudflare_api_key = $CLOUDFLARE_API_KEY" >> /root/.secrets/certbot/cloudflare.ini
     chmod 600 /root/.secrets/certbot/cloudflare.ini
 }

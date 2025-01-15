@@ -8,6 +8,11 @@ function install_python_debian {
 function install_python_redhat {
     sudo dnf install -y python3 && sudo dnf install -y augeas-libs
 }
+
+function install_python_arch {
+    sudo pacman -Syu --noconfirm python3 augeas
+}
+
 function certbot_installer {
     # Create a virtual environment for Certbot
     sudo python3 -m venv /opt/certbot/
@@ -30,6 +35,10 @@ if [ -f /etc/debian_version ]; then
 elif [ -f /etc/redhat-release ]; then
     echo "Running on a RHEL-based system, installing Certbot"
     install_python_redhat
+    certbot_installer
+elif [ -f /etc/arch-release ]; then
+    echo "Running on an Arch-based system, installing Certbot"
+    install_python_arch
     certbot_installer
 else
     echo "Unknown system"

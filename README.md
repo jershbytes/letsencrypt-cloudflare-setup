@@ -56,10 +56,13 @@ $ git clone https://github.com/JershBytes/letsencrypt-cloudflare-setup
 $ cd letsencrypt-cloudflare-setup
 
 # Install dependencies
-$ ./certbot_installer.sh*
+$ ./certbot_installer.sh
+
+# Modify the le.env file
+# Modify the contents to what yours chould be.
 
 # Run the project
-$ ./generate_cert.sh # To create your certs
+$ ./cert.sh (onlycert | cockpit)  # To create your certs
 ```
 
 ## :memo: License ##

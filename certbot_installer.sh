@@ -21,23 +21,16 @@ function certbot_installer {
     sudo /opt/certbot/bin/pip install certbot-dns-cloudflare
 }
 
-function create_cloudflare_ini {
-    read -rp "Enter your Cloudflare token: " CLOUDFLARE_API_KEY
-    mkdir -p /root/.secrets/certbot
-    echo "dns_cloudflare_api_key = $CLOUDFLARE_API_KEY" >> /root/.secrets/certbot/cloudflare.ini
-    chmod 600 /root/.secrets/certbot/cloudflare.ini
-}
+
 
 if [ -f /etc/debian_version ]; then
     echo "Running on a Debian-based system, installing Certbot"
     install_python_debian
     certbot_installer
-    create_cloudflare_ini
 elif [ -f /etc/redhat-release ]; then
     echo "Running on a RHEL-based system, installing Certbot"
     install_python_redhat
     certbot_installer
-    create_cloudflare_ini
 else
     echo "Unknown system"
     exit 1
